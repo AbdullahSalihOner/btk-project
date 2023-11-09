@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
- 
+   sayi1:number = 0;
 
   degisken1: number = 5;
   degisken2: number = 7;
