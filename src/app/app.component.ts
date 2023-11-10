@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
    sayi1:number = 0;
+   sayi2:number= 0;
+
 
   degisken1: number = 5;
   degisken2: number = 7;
@@ -32,4 +34,32 @@ export class AppComponent implements OnInit{
     toplam = this.degisken1 + this.degisken2;
     return toplam;
   }
+
+
+  showResult():number{
+    let result:number = this.sayi1 + this.sayi2;
+    console.log(result);
+    return result;
+   
+  }
+
+  applicant : ApplicantModel ={
+    id : 1,
+    firstName : "Captian",
+    lastName :"Black",
+    title: "Puro",
+    salary: 170,
+
+  }
+
+
+  
+}
+
+export interface ApplicantModel{
+  id:number;
+  firstName: string;
+  lastName: string;
+  title: string;
+  salary: number;
 }
