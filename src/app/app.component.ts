@@ -5,61 +5,44 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-   sayi1:number = 0;
-   sayi2:number= 0;
 
 
-  degisken1: number = 5;
-  degisken2: number = 7;
-  degisken3: number;
+export class AppComponent {
+  inputText: string = '';
+  hedefler: string[] = [];
+  silinenler: string[] = [];
+  isEditMode = false;
+  sayi:string = "45";
+  parentHeader: string = "300";
 
-  constructor(){
-    this.degisken3 = this.topla();
-    console.log(this.degisken3);
-  }
-
-  ngOnInit(){
-    console.log("Started")
-  }
-
-  getTotal(number1:number, number2:number) : number{
-    let total:number = number1 + number2;
-    return total;
+  readButtonEvent(event:string){
+    console.log(event);
     
   }
 
-  topla():number{
-    let toplam:number;
-    toplam = this.degisken1 + this.degisken2;
-    return toplam;
+  changeName() {
+    this.parentHeader += 1;
   }
 
-
-  showResult():number{
-    let result:number = this.sayi1 + this.sayi2;
-    console.log(result);
-    return result;
-   
+  showMessage(event:any){
+    console.log(event)
+    // this.parentHeader = event.toString();
   }
 
-  applicant : ApplicantModel ={
-    id : 1,
-    firstName : "Captian",
-    lastName :"Black",
-    title: "Puro",
-    salary: 170,
-
+  addValue() {
+    this.hedefler.push(this.inputText);
+    this.inputText = '';
   }
 
+  editItem(index: number) {
+    this.inputText = this.hedefler[index];
+    if (!this.isEditMode) this.isEditMode = true;
+    else this.isEditMode = false;
+  }
 
-  
-}
-
-export interface ApplicantModel{
-  id:number;
-  firstName: string;
-  lastName: string;
-  title: string;
-  salary: number;
+  deleteItem(index: number) {
+    const item = this.hedefler[index];
+    this.silinenler.push(item);
+    this.hedefler.splice(index, 1);
+  }
 }

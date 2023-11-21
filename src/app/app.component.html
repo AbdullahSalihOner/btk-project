@@ -1,7 +1,5 @@
-<div>
-    <div>{{applicant.id}}</div>
-    <div>{{applicant.firstName}}</div>
-    <div>{{applicant.lastName}}</div>
-    <div>{{applicant.title}}</div>
-    <div>{{applicant.salary}}</div>
-</div>
+<app-home
+  [header]="sayi"
+  header2="99"
+  (buttonEvent)="readButtonEvent($event)"
+></app-home>
