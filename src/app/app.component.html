@@ -1,5 +1,7 @@
 <app-home
-  [header]="sayi"
-  header2="99"
-  (buttonEvent)="readButtonEvent($event)"
+  [number1]=sayi1
+  [number2]=sayi2
+  (result)="readResult($event)"
 ></app-home>
+
+{{showresult}}

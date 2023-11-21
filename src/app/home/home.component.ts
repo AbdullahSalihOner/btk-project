@@ -7,28 +7,42 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class HomeComponent {
 
-  @Input() header: string = "0";
-  @Output() buttonEvent = new EventEmitter<string>();
+  @Input() number1 : number = 0;
+  @Input() number2 : number = 0;
+  @Input() resultNumber : number = 0;
+  @Output() result  = new EventEmitter<number>();
+  
 
   constructor() {}
 
-  ngOnInit(): void {}
-
-  handleUp() {
-    this.buttonEvent.emit("Butona Tıklandı");
-    //this.header = (parseInt(this.header) + 1).toString();
-    //this.header = this.header.padStart(1,"0");
-    this.header = "0";
+  ngOnInit(): void {
+    this.result.emit(this.number1 + this.number2);//Doğru kısım
   }
 
-  increase() {
-    this.header = (parseInt(this.header) + 1).toString();
-    this.header = this.header.padStart(1,"0");
+  add() {
+    this.result.emit(this.number1 + this.number2);
+    this.resultNumber = this.number1 + this.number2;
+    console.log(this.number1 + this.number2);
   }
 
-  decrease() {
-    this.header = (parseInt(this.header) - 1).toString();
-    this.header = this.header.padStart(1,"0");
-  } 
+  subtract() {
+    this.result.emit(this.number1 - this.number2);
+    this.resultNumber = this.number1 - this.number2;
+    console.log(this.number1 - this.number2);
+  }
+
+  multiply() {
+    this.result.emit(this.number1 * this.number2);
+    this.resultNumber = this.number1 * this.number2;
+    console.log(this.number1 * this.number2);
+  }
+
+  divide() {
+    this.result.emit(this.number1 / this.number2);
+    this.resultNumber = this.number1 / this.number2;
+    console.log(this.number1 / this.number2);
+  }
+
+ 
 
 }

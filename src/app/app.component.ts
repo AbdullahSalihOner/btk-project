@@ -8,41 +8,17 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class AppComponent {
-  inputText: string = '';
-  hedefler: string[] = [];
-  silinenler: string[] = [];
-  isEditMode = false;
-  sayi:string = "45";
-  parentHeader: string = "300";
+ 
+  sayi1:number=15;
+  sayi2:number=20;
 
-  readButtonEvent(event:string){
+  showresult:number=0;
+ 
+
+  readResult(event:number){
     console.log(event);
-    
+    this.showresult=event;
   }
 
-  changeName() {
-    this.parentHeader += 1;
-  }
-
-  showMessage(event:any){
-    console.log(event)
-    // this.parentHeader = event.toString();
-  }
-
-  addValue() {
-    this.hedefler.push(this.inputText);
-    this.inputText = '';
-  }
-
-  editItem(index: number) {
-    this.inputText = this.hedefler[index];
-    if (!this.isEditMode) this.isEditMode = true;
-    else this.isEditMode = false;
-  }
-
-  deleteItem(index: number) {
-    const item = this.hedefler[index];
-    this.silinenler.push(item);
-    this.hedefler.splice(index, 1);
-  }
+  
 }
