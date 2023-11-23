@@ -9,14 +9,26 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class HomeComponent {
 
 
-  url = "https://dummyjson.com/users";
+  url = 'https://dummyjson.com/users/add';
 
   users: UserModel = {};
+  user: SingleUserModel = {};
   constructor(public http:HttpClient) { }
   
   ngOnInit(): void {
     this.http.get(this.url).subscribe((data: UserModel | any)=>{
-      this.users = data;
+   // this.users=data;
+    //console.log(data);
+    })
+    let body = {
+      firstName: 'Muhammad',
+      lastName: 'Ovi',
+      age: 250,
+      /* other user data */
+    };
+    this.http.post(this.url, body).subscribe((data)=>{
+      this.user=data;
+      console.log(data);
     } )    
   }
   
@@ -64,4 +76,12 @@ export interface UserModel{
   skip?:number;
   total?:number;
   users?:any[];
+}
+
+export interface SingleUserModel{
+  id?:number;
+  firstName?:string;
+  lastName?:string;
+  maidenName?:string; 
+  age?:number;
 }

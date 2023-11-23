@@ -9,10 +9,23 @@
 <button mat-button (click)="divide()">Divide</button> -->
 
 <div>
-    <div> Limit :{{users.limit}}</div>
+    <!-- <div> Limit :{{users.limit}}</div>
     <div> Skip :{{users.total}}</div>
-    <div> Total : {{users.skip}}</div>
-    <div *ngFor="let user of users.users">
-        <div> Name : {{user.firstName}} {{user.lastName}}  {{user.university}}</div>
-    </div>
+    <div> Total : {{users.skip}}</div>--> 
+     <div *ngFor="let user of users.users">
+        <div> Name : {{user.firstName}}  </div>
+        <div> Last Name : {{user.lastName}}</div>
+        <div> Maiden Name : {{user.maidenName}}</div>
+        <div> Age : {{user.age}}</div>
+        <div> University : {{user.university}}</div>
+    </div> 
+
+
+ <!--    <div> id :{{user.id}}</div>
+    <div> firstName :{{user.firstName}}</div>
+    <div> lastName :{{user.lastName}}</div>
+    <div> maidenName : {{user.maidenName}}</div>
+    <div> age: {{user.age}}</div> -->
+   
+
 </div>
