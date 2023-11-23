@@ -10,11 +10,13 @@ export class HomeComponent {
 
 
   url = "https://dummyjson.com/users";
+
+  users: UserModel = {};
   constructor(public http:HttpClient) { }
   
   ngOnInit(): void {
-    this.http.get(this.url).subscribe(data=>{
-      console.log(data);
+    this.http.get(this.url).subscribe((data: UserModel | any)=>{
+      this.users = data;
     } )    
   }
   
@@ -53,8 +55,13 @@ export class HomeComponent {
     this.result.emit(this.number1 / this.number2);
     this.resultNumber = this.number1 / this.number2;
     console.log(this.number1 / this.number2);
-  } */
+  } */ 
 
- 
+}
 
+export interface UserModel{
+  limit?:number;
+  skip?:number;
+  total?:number;
+  users?:any[];
 }

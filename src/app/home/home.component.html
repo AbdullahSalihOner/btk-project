@@ -7,3 +7,12 @@
 <button mat-button (click)="subtract()">Subtract</button>
 <button mat-button (click)="multiply()">Multiply</button>
 <button mat-button (click)="divide()">Divide</button> -->
+
+<div>
+    <div> Limit :{{users.limit}}</div>
+    <div> Skip :{{users.total}}</div>
+    <div> Total : {{users.skip}}</div>
+    <div *ngFor="let user of users.users">
+        <div> Name : {{user.firstName}} {{user.lastName}}  {{user.university}}</div>
+    </div>
+</div>
