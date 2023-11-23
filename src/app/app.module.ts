@@ -10,6 +10,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,7 +20,8 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import {ReactiveFormsModule, FormsModule} from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   
   ],
   providers: [],

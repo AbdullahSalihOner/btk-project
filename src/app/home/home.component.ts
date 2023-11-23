@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
@@ -7,7 +8,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class HomeComponent {
 
-  @Input() number1 : number = 0;
+
+  url = "https://dummyjson.com/users";
+  constructor(public http:HttpClient) { }
+  
+  ngOnInit(): void {
+    this.http.get(this.url).subscribe(data=>{
+      console.log(data);
+    } )    
+  }
+  
+  
+  /* @Input() number1 : number = 0;
   @Input() number2 : number = 0;
   @Input() resultNumber : number = 0;
   @Output() result  = new EventEmitter<number>();
@@ -41,7 +53,7 @@ export class HomeComponent {
     this.result.emit(this.number1 / this.number2);
     this.resultNumber = this.number1 / this.number2;
     console.log(this.number1 / this.number2);
-  }
+  } */
 
  
 
